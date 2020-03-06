@@ -1,0 +1,25 @@
+{% extends 'head.html' %}
+{% load static %}
+
+{% block head %}
+    <script src="{% static 'js/main.js' %}"></script>
+    <title>post</title>
+{% endblock %}
+
+{% block body %}
+<div class="postmain">
+    <h1 style="font-size: 50px; color: #313131; font-family: 'Source Sans Pro', sans-serif;">new post</h1>
+    <button id="first" class="post-button">browse</button>
+    <div style="height: 20px;"></div>
+    <img style="display:none" id="preview" src="#" class="preview-image">
+    <div style="height: 20px;"></div>
+    <form method = "post" enctype="multipart/form-data"> 
+        {% csrf_token %} 
+        <div style="display: none;">
+            <input type="file" name="img" accept="image/*" required="" id="id_img" onChange="img_pathUrl(this);">
+        </div>
+        <button type="submit" class="post-button">post</button> 
+    </form> 
+    
+</div>
+{% endblock %}

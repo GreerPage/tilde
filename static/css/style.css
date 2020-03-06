@@ -1,0 +1,50 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    
+}
+.navbar {
+    position: absolute;
+    top: 0px;
+    height: 60px;
+    width: 100vw;
+    border-bottom: 1px solid #b3b3b3;
+}
+.logoforbar {
+    height: 40px;
+    position: absolute;
+    top: 10px;
+    left: 20%;
+}
+.iconsforbars {
+    height: 40px;
+    position: absolute;
+    top: 10px;
+    right: 20%;
+}
+.iconsforbars img{
+    height: 40px;
+}
+.iconsforbars a {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.postmain {
+    position: absolute;
+    top: 70px;
+    width: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.post-button {
+    background-color: transparent;
+    color: #313131;
+    border-radius: 10px;
+    font-size: 30px;
+    font-family: 'Source Sans Pro', sans-serif;
+    border: 0px;
+}
+.preview-image {
+    max-width: 50vw;
+}
