@@ -26,7 +26,8 @@ urlpatterns = [
     #path('admin/', admin.site.urls),
     path('', homeviews.index),
     path('gallery', gallery.index),
-    path('post', postviews.index)
+    path('post', postviews.index),
+    path('p/<str:postname>', gallery.postPage),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 

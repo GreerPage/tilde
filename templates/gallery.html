@@ -6,5 +6,8 @@
 {% endblock %}
 
 {% block body %}
-    <img src="{% get_media_prefix %}favicon.png" alt="sdasdf" width=240>
+    <div style="height: 100px; width: 100%;"></div>
+    {% for img in images %}
+        <a href="/p/{{img.1}}"><img src="/media/images/{{img.0}}" alt="" class="preview-image"></a>
+    {% endfor %}
 {% endblock %}
