@@ -47,4 +47,5 @@ html, body {
 }
 .preview-image {
     max-width: 50vw;
+    max-height: 15vh;
 }
