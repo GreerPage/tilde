@@ -48,4 +48,17 @@ html, body {
 .preview-image {
     max-width: 50vw;
     max-height: 15vh;
+    image-orientation: from-image;
 }
+.preview-image1 {
+    max-width: 100%;
+    display: block;
+}
+.cropdiv{
+    max-width: 100%;
+}
+.preview {
+    overflow: hidden;
+    width: 200px; 
+    height: 200px;
+  }

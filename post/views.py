@@ -9,8 +9,16 @@ def index(request):
         form = imgForm(request.POST, request.FILES) 
         
         if form.is_valid(): 
+            x = form.cleaned_data['x']
+            y = form.cleaned_data['y']
+            w = form.cleaned_data['width']
+            h = form.cleaned_data['height']
+            original_image = form.cleaned_data['img']
+            print(x, y, w, h)
+            
             form.save() 
-            return redirect('/') 
+            cropper(original_image, x, y, h, w)
+            return redirect('/gallery') 
     else: 
         form = imgForm() 
     context = {

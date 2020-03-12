@@ -3,6 +3,9 @@
 
 {% block head %}
     <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static '/cropperjs/dist/cropper.js' %}"></script>
+    <script src="{% static '/jquery-cropper/dist/jquery-cropper.js' %}"></script>
+    <link  href="{% static '/cropperjs/dist/cropper.css' %}" rel="stylesheet">
     <title>post</title>
 {% endblock %}
 
@@ -10,16 +13,25 @@
 <div class="postmain">
     <h1 style="font-size: 50px; color: #313131; font-family: 'Source Sans Pro', sans-serif;">new post</h1>
     <button id="first" class="post-button">browse</button>
+    <button id="done-button" class="post-button">done</button>
     <div style="height: 20px;"></div>
-    <img style="display:none" id="preview" src="#" class="preview-image">
+    <div id='to-hide'>
+        <div class="cropdiv">
+            <div id="crop">
+                <img style="display:none" id="image" src="#" class="preview-image1"> 
+                <!--<img id="image" src="{% static 'images/logo.png' %}" class="preview-image1"> -->
+            </div>
+        </div> 
+    </div>
+    <div class="preview"></div>
     <div style="height: 20px;"></div>
-    <form method = "post" enctype="multipart/form-data"> 
+    <form method = "post" enctype="multipart/form-data" id="imgform"> 
         {% csrf_token %} 
         <div style="display: none;">
-            <input type="file" name="img" accept="image/*" required="" id="id_img" onChange="img_pathUrl(this);">
+            <!--<input type="file" name="img" accept="image/*" required="" id="id_img" onChange="img_pathUrl(this);">-->
+            {{form}}
         </div>
-        <button type="submit" class="post-button">post</button> 
+        <button type="submit" class="post-button" id='post-botton-submit'>post</button>
     </form> 
-    
 </div>
 {% endblock %}
