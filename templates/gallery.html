@@ -3,11 +3,27 @@
 
 {% block head %}
     <title>gallery</title>
+    <style>
+        body {
+            overflow-x: hidden;
+        }
+    </style>
 {% endblock %}
 
 {% block body %}
-    <div style="height: 100px; width: 100%;"></div>
-    {% for img in images %}
-        <a href="/p/{{img.1}}"><img src="/media/images/{{img.0}}" alt="" class="preview-image"></a>
-    {% endfor %}
+    
+    
+    
+    <div style="height: 10vh; width: 100%;"></div>
+    <div class='gallery-main'>
+        <h1 style="font-size: 50px; color: #313131; font-family: 'Source Sans Pro', sans-serif;">Gallery</h1>
+        <div style="height: 5vh; width: 100%;"></div>
+        <hr style="color: #313131">
+        <div style="height: 10vh; width: 100%;"></div>
+        <div class='gallery-images'>
+            {% for img in images %}
+                <a href="/p/{{img.1}}"><img src="/media/images/{{img.0}}" alt="" class="preview-image"></a>
+            {% endfor %}
+        </div>
+    </div>
 {% endblock %}

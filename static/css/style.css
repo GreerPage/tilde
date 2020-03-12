@@ -46,12 +46,13 @@ html, body {
     border: 0px;
 }
 .preview-image {
-    max-width: 50vw;
-    max-height: 15vh;
+    max-width: 40vw;
+    max-height: 40vh;
     image-orientation: from-image;
 }
 .preview-image1 {
     max-width: 100%;
+    max-height: 60vh;
     display: block;
 }
 .cropdiv{
@@ -59,6 +60,44 @@ html, body {
 }
 .preview {
     overflow: hidden;
-    width: 200px; 
-    height: 200px;
+    width: 30vw; 
+    height: 30vh;
   }
+.gallery-main {
+    width: 75%;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.gallery-images {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 10px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.gallery-images img {
+    width: 100%;
+    height: auto;
+  }
+@media screen and (max-width: 830px) {
+    .gallery-images {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        grid-gap: 10px;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+    } 
+}
+@media screen and (max-width: 430px) {
+    .gallery-images {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        grid-gap: 10px;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+    } 
+}
