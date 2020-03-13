@@ -14,8 +14,6 @@ def index(request):
             w = form.cleaned_data['width']
             h = form.cleaned_data['height']
             original_image = form.cleaned_data['img']
-            print(x, y, w, h)
-            
             form.save() 
             cropper(original_image, x, y, h, w)
             return redirect('/gallery') 
