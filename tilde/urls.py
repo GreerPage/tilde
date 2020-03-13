@@ -21,6 +21,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from post import views as postviews
+from . import views as rootviews
 
 urlpatterns = [
     #path('admin/', admin.site.urls),
@@ -37,4 +38,8 @@ urlpatterns = [
 
 
 urlpatterns += staticfiles_urlpatterns()
+handler404 = rootviews.error_404
+handler500 = rootviews.error_500
+handler403 = rootviews.error_403
+handler400 = rootviews.error_400
 
