@@ -16,12 +16,9 @@ def index(request):
     postnamesext = []
     for x in sorted1:
         postnamesext.append(os.path.basename(x))
-    print(postnamesext)
     postnames = []
     for x in postnamesext:
         postnames.append(os.path.splitext(x)[0])
-    print(postnames)
-    
     context = {
         'nav': True,
         'images': zip(postnamesext, postnames),
@@ -33,7 +30,7 @@ def postPage(request, postname):
     for x in os.listdir('{}/images'.format(settings.MEDIA_ROOT)):
         postnames.append(os.path.splitext(x)[0])
     if postname not in postnames:
-        return Http404()
+        raise Http404()
     for x in os.listdir('{}/images'.format(settings.MEDIA_ROOT)):
         if os.path.splitext(x)[0]==postname:
             postext = x

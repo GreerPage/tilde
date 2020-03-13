@@ -16,7 +16,7 @@ $(document).ready(function() {
     $('#next-button').click(function () {
         $('#image').cropper({
             aspectRatio: 16 / 16,
-            zoomable: false,
+            //zoomable: false,
             preview: '.preview',
             crop: function(event) {
                 

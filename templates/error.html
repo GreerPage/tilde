@@ -1,0 +1,10 @@
+{% extends 'head.html' %}
+{% load static %}
+{% block head %}
+    <title>{{error}}</title>
+{% endblock %}
+{% block body %}
+    <div class="backimg">
+        <p class="error">{{errornum}} | {{error}}</p>  
+    </div>
+{% endblock %}

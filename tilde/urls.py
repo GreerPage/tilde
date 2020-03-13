@@ -26,9 +26,13 @@ urlpatterns = [
     #path('admin/', admin.site.urls),
     path('', homeviews.index),
     path('gallery', gallery.index),
+    path('gallery/', gallery.index),
     path('post', postviews.index),
     path('p/<str:postname>', gallery.postPage),
-    path('p', gallery.p)
+    path('p', gallery.p),
+    path('post/', postviews.index),
+    path('p/<str:postname>/', gallery.postPage),
+    path('p/', gallery.p),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
