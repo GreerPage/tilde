@@ -14,6 +14,7 @@ def generateName(instance, filename):
 def cropper(original_path, x, y, height, width):
     original_path = str(original_path)
     img = Image.open(os.path.join(settings.BASE_DIR, 'media/'+original_path))
+    img = img.load()
     cropped_image = img.crop((x, y, width+x, height+y))
     resized_image = cropped_image.resize((400, 400), Image.ANTIALIAS)
     resized_image.save(os.path.join(settings.BASE_DIR, 'media/'+ generateName(0, original_path)))
