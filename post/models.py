@@ -17,7 +17,6 @@ def cropper(original_path, x, y, height, width, newName):
     img = Image.open(os.path.join(settings.BASE_DIR, 'media/'+original_path))
     try:
         exif=dict((ExifTags.TAGS[k], v) for k, v in img._getexif().items() if k in ExifTags.TAGS)
-        print(exif)
         if exif['Orientation']==6:
             img=img.rotate(270, expand=True)
         if exif['Orientation']==8:

@@ -42,7 +42,10 @@ def postPage(request, postname):
                 json.dump(data, file1)
     except:
         with open(os.path.join(settings.MEDIA_ROOT, 'json/imageviews.json')) as file:
-            data = json.load(file)
+            try:
+                data = json.load(file)
+            except:
+                data = {}
             data[postname] = 0
             with open(os.path.join(settings.MEDIA_ROOT, 'json/imageviews.json'), 'w') as file:
                 json.dump(data, file)

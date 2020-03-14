@@ -10,19 +10,22 @@ def index(request):
     linknames = []
     for x in postnames:
         linknames.append(os.path.splitext(x)[0]) 
-    with open(os.path.join(settings.MEDIA_ROOT, 'json/imageviews.json')) as file:
-                data = json.load(file)
-                highest = sorted(data, key=data.get, reverse=True)[:10]
-                print(highest)
-    highestfiles = []
-    for x in highest:
-        if x in linknames:
-            i = linknames.index(x)
-            highestfiles.append(postnames[i])
-            
-    print(highestfiles)
+    images = ''
+    try:
+        with open(os.path.join(settings.MEDIA_ROOT, 'json/imageviews.json')) as file:
+            data = json.load(file)
+            highest = sorted(data, key=data.get, reverse=True)[:10]
+            highestfiles = []
+            for x in highest:
+                if x in linknames:
+                    i = linknames.index(x)
+                    highestfiles.append(postnames[i])
+            images = zip(highestfiles, highest)
+    except:
+        pass
+    
     context = {
         'nav': True,
-        'images': zip(highestfiles, highest)
+        'images': images
     }
     return render(request, 'home.html', context)
