@@ -72,7 +72,7 @@ html, body {
 .gallery-images {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    grid-gap: 10px;
+    grid-gap: 15px;
     position: relative;
     left: 50%;
     transform: translateX(-50%);
@@ -90,6 +90,18 @@ html, body {
     text-align: center;
     font-size: 30px;
     font-family: 'Source Sans Pro', sans-serif;
+}
+.home-main {
+    width: 75%;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0;
+    margin: 0px;
+}
+.home-main img{
+    padding: 0;
+    margin: 0; 
 }
 @media screen and (max-width: 830px) {
     .gallery-images {

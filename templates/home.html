@@ -6,5 +6,13 @@
 {% endblock %}
 
 {% block body %}
-    
+    <div style="height: 7vh; width: 100%;"></div>
+    <div class="home-main">
+        <h1 style="font-size: 40px; color: #313131; font-family: 'Source Sans Pro', sans-serif;">trending</h1>
+        <hr style="color: #313131">
+        <div style="height: 3vh; width: 100%;"></div>
+        {% for image in images %}
+            <a href="/p/{{image.1}}"><img src="/media/images/{{image.0}}" alt=""></a>
+        {% endfor %}
+    </div>
 {% endblock %}

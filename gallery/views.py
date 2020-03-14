@@ -3,8 +3,8 @@ from django.conf import settings
 import os
 from django.http import HttpResponse, Http404
 from django.shortcuts import render, redirect
-import glob
 from pathlib import Path
+import json
 
 # Create your views here.
 def index(request):
@@ -34,6 +34,18 @@ def postPage(request, postname):
     for x in os.listdir('{}/images'.format(settings.MEDIA_ROOT)):
         if os.path.splitext(x)[0]==postname:
             postext = x
+    try:
+        with open(os.path.join(settings.MEDIA_ROOT, 'json/imageviews.json')) as file:
+            data = json.load(file)
+            data[postname] += 1
+            with open(os.path.join(settings.MEDIA_ROOT, 'json/imageviews.json'), 'w') as file1:
+                json.dump(data, file1)
+    except:
+        with open(os.path.join(settings.MEDIA_ROOT, 'json/imageviews.json')) as file:
+            data = json.load(file)
+            data[postname] = 0
+            with open(os.path.join(settings.MEDIA_ROOT, 'json/imageviews.json'), 'w') as file:
+                json.dump(data, file)
     context = {
         'postname': postname,
         'postnameext': postext,
