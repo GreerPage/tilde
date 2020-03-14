@@ -14,7 +14,7 @@ def index(request):
     try:
         with open(os.path.join(settings.MEDIA_ROOT, 'json/imageviews.json')) as file:
             data = json.load(file)
-            highest = sorted(data, key=data.get, reverse=True)[:10]
+            highest = sorted(data, key=data.get, reverse=True)[:20]
             highestfiles = []
             for x in highest:
                 if x in linknames:

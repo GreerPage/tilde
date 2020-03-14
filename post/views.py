@@ -19,11 +19,17 @@ def index(request):
             form.save() 
             newName = generateName(0, str(original_image))
             cropper(original_image, x, y, h, w, newName)
-            with open(os.path.join(settings.MEDIA_ROOT, 'json/imageviews.json')) as file:
-                data = json.load(file)
-                data[newName] = 0
+            try:
+                with open(os.path.join(settings.MEDIA_ROOT, 'json/imageviews.json')) as file:
+                    data = json.load(file)
+                    data[newName] = 0
+                    with open(os.path.join(settings.MEDIA_ROOT, 'json/imageviews.json'), 'w') as file1:
+                        json.dump(data, file1)
+            except:
                 with open(os.path.join(settings.MEDIA_ROOT, 'json/imageviews.json'), 'w') as file1:
-                    json.dump(data, file1)
+                        data = {}
+                        data[newName] = 0
+                        json.dump(data, file1)
             return redirect('/gallery') 
     else: 
         form = imgForm() 

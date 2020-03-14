@@ -2,9 +2,24 @@
 {% load static %}
 
 {% block head %}
-    <title>tilde</title>
+    <title>post</title>
 {% endblock %}
 
 {% block body %}
-    <img src="/media/images/{{postnameext}}" alt="asdf">
+    <div style="height: 7vh; width: 100%;"></div>
+    <div class="backbutton">
+        <button onclick="history.back()"><img src="{% static 'images/icons/x.png' %}" alt="x"></button>
+    </div>
+    <div class="postpage-main">
+        <div class="postimagediv">
+            
+            <img src="/media/images/{{postnameext}}" alt="{{postnameext}}" class='postpage-image'>
+            <div class="postpage-views">
+                <p><img src="{% static 'images/icons/eye.png' %}" alt="eye"></p>
+                <p>{{views}}</p>
+            </div>
+        </div>
+        
+        
+    </div>
 {% endblock %}

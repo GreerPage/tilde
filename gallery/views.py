@@ -40,6 +40,7 @@ def postPage(request, postname):
             data[postname] += 1
             with open(os.path.join(settings.MEDIA_ROOT, 'json/imageviews.json'), 'w') as file1:
                 json.dump(data, file1)
+            views = data[postname]
     except:
         with open(os.path.join(settings.MEDIA_ROOT, 'json/imageviews.json')) as file:
             try:
@@ -49,10 +50,14 @@ def postPage(request, postname):
             data[postname] = 0
             with open(os.path.join(settings.MEDIA_ROOT, 'json/imageviews.json'), 'w') as file:
                 json.dump(data, file)
+            views = data[postname]
+    
     context = {
         'postname': postname,
         'postnameext': postext,
+        'views': views
     }
     return render(request, 'postpage.html', context)
+
 def p(index):
     return redirect('/gallery')

@@ -3,7 +3,7 @@ from django.http import HttpResponse
 
 def error_404(request, exception):
         data = {
-            'error': 'Page Not Found',
+            'error': 'page not found',
             'errornum': '404',
             'linknum': '1',
             'nav': True,
@@ -12,7 +12,7 @@ def error_404(request, exception):
 
 def error_500(request):
         data = {
-            'error': 'Internal Server Error',
+            'error': 'internal server error',
             'errornum': '500',
             'linknum': '1',
             'nav': True,
@@ -20,7 +20,7 @@ def error_500(request):
         return render(request,'error.html', data)
 def error_400(request, exception):
         data = {
-            'error': 'Bad Request',
+            'error': 'bad request',
             'errornum': '400',
             'linknum': '1',
             'nav': True,
@@ -28,7 +28,7 @@ def error_400(request, exception):
         return render(request,'error.html', data)
 def error_403(request, exception):
         data = {
-            'error': 'Forbidden',
+            'error': 'forbidden',
             'errornum': '403',
             'linknum': '1',
             'nav': True,
