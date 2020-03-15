@@ -34,6 +34,7 @@ urlpatterns = [
     path('post/', postviews.index),
     path('p/<str:postname>/', gallery.postPage),
     path('p/', gallery.p),
+    path('e/<str:errornum>/<str:error>', rootviews.error)
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 

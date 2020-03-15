@@ -43,4 +43,19 @@ $(document).ready(function() {
 function img_pathUrl(input){
     $('#image')[0].src = (window.URL ? URL : webkitURL).createObjectURL(input.files[0]);
     $('#image')[0].style = "";
+    var fullPath = document.getElementById('id_img').value;
+    if (fullPath) {
+        var startIndex = (fullPath.indexOf('\\') >= 0 ? fullPath.lastIndexOf('\\') : fullPath.lastIndexOf('/'));
+        var filename = fullPath.substring(startIndex);
+        if (filename.indexOf('\\') === 0 || filename.indexOf('/') === 0) {
+            filename = filename.substring(1);
+        }
+        if(hasWhiteSpace(filename)){
+            window.location.replace(document.location.origin + "/e/500/file name cannot contain spaces");
+        }
+    }
+
 }
+function hasWhiteSpace(s) {
+    return s.indexOf(' ') >= 0;
+  }
