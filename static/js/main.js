@@ -7,6 +7,8 @@ $(document).ready(function() {
     });
     $('#post-botton-submit-yeah').click(function(){
         $('#post-botton-submit').click();
+        $('#posting-text').attr('style', 'visible');
+        $('#post-botton-submit-yeah').attr('style', 'display: none;')
         return false;
     });
     $("#post-button").click(function(){
@@ -37,11 +39,6 @@ $(document).ready(function() {
         $('#post-botton-submit-yeah').attr('style', 'visibility: visible;');
     });
     $('#id_img').attr('onChange', 'img_pathUrl(this);')
-    $('#imgformW').on('submit', function(event){
-        event.preventDefault();
-        console.log("form submitted!")  // sanity check
-        create_post();
-    });
 });
 function img_pathUrl(input){
     $('#image')[0].src = (window.URL ? URL : webkitURL).createObjectURL(input.files[0]);

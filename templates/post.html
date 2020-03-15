@@ -18,7 +18,6 @@
         <div class="cropdiv">
             <div id="crop">
                 <img style="display:none" id="image" src="#" class="preview-image1"> 
-                <!--<img id="image" src="{% static 'images/logo.png' %}" class="preview-image1"> -->
             </div>
         </div> 
         <div style="height: 20px;"></div>
@@ -26,7 +25,6 @@
     <form method = "post" enctype="multipart/form-data" id="imgform"> 
         {% csrf_token %} 
         <div style="display: none;">
-            <!--<input type="file" name="img" accept="image/*" required="" id="id_img" onChange="img_pathUrl(this);">-->
             {{form}}
         </div>
         <button type="submit" class="post-button" id='post-botton-submit' style='visibility: hidden;'>post</button>
@@ -37,5 +35,6 @@
     <div class="preview" style='visibility: hidden;' id="preview"></div>
     <div style="height: 20px;"></div>
     <button class="post-button" id='post-botton-submit-yeah' style='visibility: hidden;'>post</button>
+    <p class="post-button" id="posting-text" style='visibility: hidden;'>posting...</p>
 </div>
 {% endblock %}
