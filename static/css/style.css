@@ -179,7 +179,7 @@ html, body {
         padding-left: 10%;
     }
 }
-@media screen and (max-width: 430px) {
+@media screen and (max-width: 450px) {
     .gallery-images {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
