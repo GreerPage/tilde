@@ -13,6 +13,7 @@ def generateName(instance, filename):
     return randomstr    
 
 def cropper(original_path, x, y, height, width, newName):
+    print(x, y, width, height)
     original_path = str(original_path)
     img = Image.open(os.path.join(settings.BASE_DIR, 'media/'+original_path))
     try:
@@ -25,9 +26,15 @@ def cropper(original_path, x, y, height, width, newName):
             img=img.rotate(180, expand=True)
     except:
         pass
-    cropped_image = img.crop((x, y, width+x, height+y))
-    resized_image = cropped_image.resize((800, 800), Image.ANTIALIAS)
-    resized_image.save(os.path.join(settings.BASE_DIR, 'media/'+ 'images/'+newName+'.png'))
+    if x > 0 and y > 0:
+        cropped_image = img.crop((x, y, width+x, height+y))
+        resized_image = cropped_image.resize((800, 800), Image.ANTIALIAS)
+        resized_image.save(os.path.join(settings.BASE_DIR, 'media/'+ 'images/'+newName+'.png'))
+    else:   
+        bg = Image.new('RGBA', (int(width), int(height)), (255, 0, 0, 0))
+        bg.paste(img, (int(-x), int(-y)))
+        resized_image = bg.resize((800, 800), Image.ANTIALIAS)
+        resized_image.save(os.path.join(settings.BASE_DIR, 'media/'+ 'images/'+newName+'.png'))
     os.remove(os.path.join(settings.BASE_DIR, 'media/'+original_path))
 
 
