@@ -40,3 +40,4 @@ def index(request):
         'images': images
     }
     return render(request, 'home.html', context)
+

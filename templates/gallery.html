@@ -8,6 +8,8 @@
             overflow-x: hidden;
         }
     </style>
+    <script src="{% static 'js/lazyload.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lazyload@2.0.0-rc.2/lazyload.js"></script>
 {% endblock %}
 
 {% block body %}
@@ -18,7 +20,7 @@
         <div style="height: 3vh; width: 100%;"></div>
         <div class='gallery-images'>
             {% for img in images %}
-                <a href="/p/{{img.1}}"><img src="/media/images/{{img.0}}" alt="" class="preview-image"></a>
+                <a href="/p/{{img.1}}"><img src="{% static 'images/blank.png' %}"data-src="/media/images/{{img.0}}" alt="" class="preview-image"></a>
             {% endfor %}
         </div>
     </div>
