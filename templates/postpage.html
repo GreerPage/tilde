@@ -22,10 +22,12 @@
                     <div class="caption-for-posts" id='caption-for-posts'>
                         <span>{{caption}}</span>
                     </div>
-                    <button onclick="displayPostCaption()" class="caption-button">
-                        <p style="float: left;"  id="caption-button" id="less">...  </p>
-                        <p id="more-text" style="float: left; padding-left: 5px;">more</p>
-                    </button>
+                    {% if more == True %}
+                        <button onclick="displayPostCaption()" class="caption-button">
+                            <p style="float: left;"  id="caption-button" id="less">...  </p>
+                            <p id="more-text" style="float: left; padding-left: 5px;">more</p>
+                        </button>
+                    {% endif %} 
                 {% endif %}
             </div>
         </div>

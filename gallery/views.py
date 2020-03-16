@@ -57,14 +57,19 @@ def postPage(request, postname):
             caption = data[postname]
             if caption == '~caption=none~':
                 caption = ''
+            if len(caption) >= 77:
+                more = True
+            else:
+                more = False
     except:
         caption = ''
-    
+        more = False
     context = {
         'postname': postname,
         'postnameext': postext,
         'views': views,
         'caption': caption,
+        'more': more,
     }
     return render(request, 'postpage.html', context)
 
