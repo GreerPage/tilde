@@ -21,6 +21,12 @@ def index(request):
                     i = linknames.index(x)
                     highestfiles.append(postnames[i])
             images = zip(highestfiles, highest)
+    except FileNotFoundError:
+        try:
+            open(os.path.join(settings. BASE_DIR, 'json/imageviews.json'), 'a').close()
+        except FileNotFoundError:
+            os.mkdir(os.path.join(settings. BASE_DIR, 'json/'))
+            open(os.path.join(settings. BASE_DIR, 'json/imageviews.json'), 'a').close()
     except:
         pass
     

@@ -13,7 +13,6 @@ def generateName(instance, filename):
     return randomstr    
 
 def cropper(original_path, x, y, height, width, newName):
-    print(x, y, width, height)
     original_path = str(original_path)
     img = Image.open(os.path.join(settings.BASE_DIR, 'media/'+original_path))
     try:
