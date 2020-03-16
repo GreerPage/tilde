@@ -6,7 +6,12 @@ import operator
 
 # Create your views here.
 def index(request):
-    postnames= os.listdir('{}/images'.format(settings.MEDIA_ROOT))
+    try:
+        postnames= os.listdir('{}/images'.format(settings.MEDIA_ROOT))
+    except FileNotFoundError:
+        os.mkdir(settings.MEDIA_ROOT)
+        os.mkdir(os.path.join(settings.MEDIA_ROOT, 'images/'))
+        postnames= os.listdir('{}/images'.format(settings.MEDIA_ROOT))
     linknames = []
     for x in postnames:
         linknames.append(os.path.splitext(x)[0]) 
