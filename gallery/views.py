@@ -35,20 +35,20 @@ def postPage(request, postname):
         if os.path.splitext(x)[0]==postname:
             postext = x
     try:
-        with open(os.path.join(settings.MEDIA_ROOT, 'json/imageviews.json')) as file:
+        with open(os.path.join(settings.BASE_DIR, 'json/imageviews.json')) as file:
             data = json.load(file)
             data[postname] += 1
-            with open(os.path.join(settings.MEDIA_ROOT, 'json/imageviews.json'), 'w') as file1:
+            with open(os.path.join(settings.BASE_DIR, 'json/imageviews.json'), 'w') as file1:
                 json.dump(data, file1)
             views = data[postname]
     except:
-        with open(os.path.join(settings.MEDIA_ROOT, 'json/imageviews.json')) as file:
+        with open(os.path.join(settings.BASE_DIR, 'json/imageviews.json')) as file:
             try:
                 data = json.load(file)
             except:
                 data = {}
             data[postname] = 1
-            with open(os.path.join(settings.MEDIA_ROOT, 'json/imageviews.json'), 'w') as file:
+            with open(os.path.join(settings.BASE_DIR, 'json/imageviews.json'), 'w') as file:
                 json.dump(data, file)
             views = data[postname]
     

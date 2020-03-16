@@ -12,7 +12,7 @@ def index(request):
         linknames.append(os.path.splitext(x)[0]) 
     images = ''
     try:
-        with open(os.path.join(settings.MEDIA_ROOT, 'json/imageviews.json')) as file:
+        with open(os.path.join(settings.BASE_DIR, 'json/imageviews.json')) as file:
             data = json.load(file)
             highest = sorted(data, key=data.get, reverse=True)[:20]
             highestfiles = []
