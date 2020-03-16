@@ -6,6 +6,13 @@ $(document).ready(function() {
         return false;
     });
     $('#post-botton-submit-yeah').click(function(){
+        var comment = $.trim($("#caption-text-box").val());
+        if(comment===''){
+            $("#caption-text-box").hide()
+            $('#caption-text-box').val('~caption=none~')
+            var comment = $.trim($("#caption-text-box").val());
+        }
+        $('#id_caption').val(comment);
         $('#post-botton-submit').click();
         $('#posting-text').attr('style', 'visible');
         $('#post-botton-submit-yeah').attr('style', 'display: none;')
@@ -37,6 +44,7 @@ $(document).ready(function() {
         $('#done-button').hide();
         $('#preview').attr('style', 'visibility: visible');
         $('#post-botton-submit-yeah').attr('style', 'visibility: visible;');
+        $('#caption-text-box').attr('style', 'visibility: visible');
     });
     $('#id_img').attr('onChange', 'img_pathUrl(this);')
 });

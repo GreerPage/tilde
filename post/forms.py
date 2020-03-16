@@ -8,7 +8,8 @@ class imgForm(forms.ModelForm):
     y = forms.FloatField(widget=forms.HiddenInput())
     width = forms.FloatField(widget=forms.HiddenInput())
     height = forms.FloatField(widget=forms.HiddenInput())
+    caption = forms.CharField(widget=forms.HiddenInput())
     
     class Meta: 
         model = imgUpload 
-        fields = ('img', 'y', 'width', 'x', 'height',)
+        fields = ('img', 'y', 'width', 'x', 'height', 'caption',)

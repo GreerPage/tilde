@@ -51,11 +51,20 @@ def postPage(request, postname):
             with open(os.path.join(settings.BASE_DIR, 'json/imageviews.json'), 'w') as file:
                 json.dump(data, file)
             views = data[postname]
+    try:
+        with open(os.path.join(settings.BASE_DIR, 'json/postcaptions.json')) as file:
+            data = json.load(file)
+            caption = data[postname]
+            if caption == '~caption=none~':
+                caption = ''
+    except:
+        caption = ''
     
     context = {
         'postname': postname,
         'postnameext': postext,
-        'views': views
+        'views': views,
+        'caption': caption,
     }
     return render(request, 'postpage.html', context)
 

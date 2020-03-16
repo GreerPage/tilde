@@ -15,6 +15,7 @@ def index(request):
             y = form.cleaned_data['y']
             w = form.cleaned_data['width']
             h = form.cleaned_data['height']
+            caption = form.cleaned_data['caption']
             original_image = form.cleaned_data['img']
             form.save() 
             newName = generateName(0, str(original_image))
@@ -25,11 +26,43 @@ def index(request):
                     data[newName] = 0
                     with open(os.path.join(settings.BASE_DIR, 'json/imageviews.json'), 'w') as file1:
                         json.dump(data, file1)
+            except FileNotFoundError:
+                try:   
+                    open(os.path.join(settings. BASE_DIR, 'json/postcaptions.json'), 'a').close()
+                    with open(os.path.join(settings.BASE_DIR, 'json/postcaptions.json'), 'w') as file1:
+                        data = {}
+                        data[newName] = 0
+                        json.dump(data, file1)
+                except FileNotFoundError:
+                    os.mkdir(os.path.join(settings. BASE_DIR, 'json/'))
+                    open(os.path.join(settings. BASE_DIR, 'json/imageviews.json'), 'a').close()
+                    with open(os.path.join(settings.BASE_DIR, 'json/imageviews.json'), 'w') as file1:
+                        data = {}
+                        data[newName] = 0
+                        json.dump(data, file1)
             except:
                 with open(os.path.join(settings.BASE_DIR, 'json/imageviews.json'), 'w') as file1:
                         data = {}
                         data[newName] = 0
                         json.dump(data, file1)
+            try:
+                with open(os.path.join(settings.BASE_DIR, 'json/postcaptions.json')) as file:
+                    data = json.load(file)
+                    data[newName] = caption
+                    with open(os.path.join(settings.BASE_DIR, 'json/postcaptions.json'), 'w') as file1:
+                        json.dump(data, file1)
+            except FileNotFoundError:
+                    open(os.path.join(settings. BASE_DIR, 'json/postcaptions.json'), 'a').close()
+                    with open(os.path.join(settings.BASE_DIR, 'json/postcaptions.json'), 'w') as file1:
+                        data = {}
+                        data[newName] = caption
+                        json.dump(data, file1)
+            except:
+                with open(os.path.join(settings.BASE_DIR, 'json/postcaptions.json'), 'w') as file1:
+                        data = {}
+                        data[newName] = caption
+                        json.dump(data, file1)
+
             return redirect('/gallery') 
     else: 
         form = imgForm() 

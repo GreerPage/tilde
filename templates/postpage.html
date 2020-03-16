@@ -3,6 +3,7 @@
 
 {% block head %}
     <title>post</title>
+    <script src="{% static 'js/display.js' %}"></script>
 {% endblock %}
 
 {% block body %}
@@ -17,6 +18,15 @@
             <div class="postpage-views">
                 <p><img src="{% static 'images/icons/eye.png' %}" alt="eye"></p>
                 <p>{{views}}</p>
+                {% if caption != '' %}
+                    <div class="caption-for-posts" id='caption-for-posts'>
+                        <span>{{caption}}</span>
+                    </div>
+                    <button onclick="displayPostCaption()" class="caption-button">
+                        <p style="float: left;"  id="caption-button" id="less">...  </p>
+                        <p id="more-text" style="float: left; padding-left: 5px;">more</p>
+                    </button>
+                {% endif %}
             </div>
         </div>
         

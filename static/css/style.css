@@ -136,10 +136,25 @@ html, body {
     color: #313131;
     font-size: 20px;
 }
+.caption-for-posts {
+    width: 100%;
+    word-wrap: break-word;
+    height: 20px;
+    overflow-y: hidden;
+    font-size: 17px;
+    transition: max-height 0.3s ease-out;
+}
+.caption-button {
+    float: left;
+}
 .postpage-views img {
     width: 30px;
     float: left;
     padding-right: 20px;
+}
+.postpage-views button {
+    border: 0;
+    background: transparent;
 }
 .postimagediv {
     width: 100%;
@@ -154,6 +169,20 @@ html, body {
 .backbutton button {
     background: transparent;
     border: none;
+}
+#caption-text-box {
+    width: 50%;
+    min-width: 150px;
+    max-width: 300px;
+    height: 70px;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 15px;
+    resize: none;
+    background-color: white;
+    border-radius: 10px;
+    color: #313131;
+    padding: 5px;
+    border: 0;
 }
 @media screen and (max-width: 830px) {
     .gallery-images {
