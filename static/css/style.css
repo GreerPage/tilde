@@ -139,10 +139,14 @@ html, body {
 .caption-for-posts {
     width: 100%;
     word-wrap: break-word;
-    height: 20px;
+    height: 40px;
     overflow-y: hidden;
     font-size: 17px;
-    transition: max-height 0.3s ease-out;
+}
+.caption-for-posts1 {
+    width: 100%;
+    word-wrap: break-word;
+    font-size: 17px;
 }
 .caption-button {
     float: left;

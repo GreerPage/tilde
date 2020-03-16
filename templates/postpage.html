@@ -19,14 +19,19 @@
                 <p><img src="{% static 'images/icons/eye.png' %}" alt="eye"></p>
                 <p>{{views}}</p>
                 {% if caption != '' %}
-                    <div class="caption-for-posts" id='caption-for-posts'>
-                        <span>{{caption}}</span>
-                    </div>
+                    
                     {% if more == True %}
+                        <div class="caption-for-posts" id='caption-for-posts'>
+                            <p>{{caption}}</p>
+                        </div>
                         <button onclick="displayPostCaption()" class="caption-button">
                             <p style="float: left;"  id="caption-button" id="less">...  </p>
                             <p id="more-text" style="float: left; padding-left: 5px;">more</p>
                         </button>
+                    {% else %}
+                        <div class="caption-for-posts1" id='caption-for-posts'>
+                            <p>{{caption}}</p>
+                        </div>
                     {% endif %} 
                 {% endif %}
             </div>
