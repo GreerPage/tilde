@@ -46,7 +46,7 @@ $(document).ready(function() {
         $('#post-botton-submit-yeah').attr('style', 'visibility: visible;');
         $('#caption-text-box').attr('style', 'visibility: visible');
     });
-    $('#id_img').attr('onChange', 'img_pathUrl(this);')
+    $('#id_img').attr('onChange', 'img_pathUrl(this);');
 });
 function img_pathUrl(input){
     $('#image')[0].src = (window.URL ? URL : webkitURL).createObjectURL(input.files[0]);
