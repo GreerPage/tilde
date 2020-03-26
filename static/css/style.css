@@ -238,7 +238,7 @@ html, body {
     .postpage-main {
         width: 75%;
     }
-    .navbar {
+    /*.navbar {
         position: fixed;
         top: 100vh;
         height: 40px;
@@ -289,5 +289,5 @@ html, body {
     }
     .postmain {
         top: 0px;
-    }
+    }*/
 }
