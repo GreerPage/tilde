@@ -238,15 +238,16 @@ html, body {
     .postpage-main {
         width: 75%;
     }
-    /*.navbar {
+    .navbar {
         position: fixed;
         top: 100vh;
-        height: 40px;
+        height: 80px;
         width: 100vw;
         background-color: white;
-        transform: translateY(-40px);
+        transform: translateY(-80px);
         z-index: 1000;
         border-top: 1px solid #b3b3b3;
+        border-bottom: none;
     }
     .logoforbar {
         height: 30px;
@@ -289,5 +290,5 @@ html, body {
     }
     .postmain {
         top: 0px;
-    }*/
+    }
 }
