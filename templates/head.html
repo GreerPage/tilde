@@ -17,12 +17,11 @@
 <body>
     {% if nav == True %}
         <div class="navbar">
-            <a href="/"><img src="{% static 'images/logo1.png' %}" alt="logo" class="logoforbar"></a>
+            <a href="/" id='logo'><img src="{% static 'images/logo1.png' %}" alt="logo" class="logoforbar"></a>
             <div class="iconsforbars">
-                <a href="/post"><img src="{% static 'images/icons/plus.png' %}" alt="plus"></a>
-                <a href="/gallery"><img src="{% static 'images/icons/waffle.png' %}" alt="logo"></a>
+                <a href="/post" id="plus"><img src="{% static 'images/icons/plus.png' %}" alt="plus"></a>
+                <a href="/gallery"id="waffle"><img src="{% static 'images/icons/waffle.png' %}" alt="logo"></a>
             </div>
-            
         </div>
     {% endif %}
     {% block body %}{% endblock %}

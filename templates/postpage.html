@@ -2,7 +2,11 @@
 {% load static %}
 
 {% block head %}
-    <title>post</title>
+    {% if caption != '' %}
+        <title>{{caption}}</title>
+    {% else %}
+        <title>post</title>
+    {% endif %} 
     <script src="{% static 'js/display.js' %}"></script>
 {% endblock %}
 
@@ -25,7 +29,7 @@
                             <p>{{caption}}</p>
                         </div>
                         <button onclick="displayPostCaption()" class="caption-button">
-                            <p style="float: left;"  id="caption-button" id="less">see more</p>
+                            <p style="float: left;"  id="caption-button" id="less">show more</p>
                         </button>
                     {% else %}
                         <div class="caption-for-posts1" id='caption-for-posts'>

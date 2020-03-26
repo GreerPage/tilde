@@ -190,6 +190,10 @@ html, body {
 #caption-button {
     color: #313131;
 }
+.filler {
+    height: 7vh; 
+    width: 100%;
+}
 @media screen and (max-width: 830px) {
     .gallery-images {
         display: grid;
@@ -233,5 +237,57 @@ html, body {
     } 
     .postpage-main {
         width: 75%;
+    }
+    .navbar {
+        position: fixed;
+        top: 100vh;
+        height: 40px;
+        width: 100vw;
+        background-color: white;
+        transform: translateY(-40px);
+        z-index: 1000;
+        border-top: 1px solid #b3b3b3;
+    }
+    .logoforbar {
+        height: 30px;
+        position: absolute;
+        top: 5px;
+        left: unset;
+    }
+    .iconsforbars {
+        height: 30px;
+        position: absolute;
+        top: 5px;
+        right: unset;
+        width: 100%;
+    }
+    .iconsforbars img{
+        height: 30px;
+    }
+    .iconsforbars a {
+        padding-left: unset;
+        padding-right: unset;
+    }
+    #plus {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    #logo {
+        z-index: 100000;
+        position: absolute;
+        left: 25%;
+        transform: translateX(-30px);
+    }
+    #waffle {
+        position: absolute;
+        right: 25%;
+        transform: translateX(30px);
+    }
+    .filler {
+        height: 0vh;
+    }
+    .postmain {
+        top: 0px;
     }
 }
